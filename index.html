@@ -37,7 +37,12 @@
         
         #pageLoader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; transition: opacity 0.4s ease; }
         .loader-welcome-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--welcome-title-color); margin-bottom: 4px; }
-        .loader-welcome-subtitle { font-family: 'Noto Sans Ethiopic', sans-serif; font-size: 18px; font-weight: 700; color: var(--welcome-subtitle-color); margin-bottom: 30px; }
+        .loader-welcome-subtitle { font-family: 'Noto Sans Ethiopic', sans-serif; font-size: 18px; font-weight: 700; color: var(--welcome-subtitle-color); margin-bottom: 25px; }
+        
+        /* Loading Page Logo Layout Style matching the header's aesthetic proportions */
+        .loader-logo-container { display: flex; align-items: center; justify-content: center; width: 95px; height: 95px; background: rgba(0,0,0,0.03); border-radius: 50%; padding: 4px; margin-bottom: 25px; border: 1px solid rgba(0,0,0,0.05); }
+        .loader-logo-img { height: 100%; width: 100%; object-fit: cover; border-radius: 50%; }
+        
         .spinner { width: 45px; height: 45px; border: 5px solid #eee; border-top: 5px solid var(--brand-primary); border-radius: 50%; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .progress-text { font-size: 24px; font-weight: 700; color: var(--brand-primary); margin-top: 15px; font-family: 'Poppins', sans-serif; }
@@ -102,6 +107,13 @@
 <div id="pageLoader">
     <h2 class="loader-welcome-title">Welcome To Korerima Maed</h2>
     <h3 class="loader-welcome-subtitle">እንኳን ወደ ኮረሪማ ማዕድ በደህና መጡ</h3>
+    
+    <!-- Unified Logo Element inserted inside Loader Page Layout Structure -->
+    <div class="loader-logo-container">
+        <img src="logo.jpg" class="loader-logo-img" alt="Logo" onerror="this.style.display='none'; document.getElementById('loaderLogoFallback').style.display='flex'">
+        <div id="loaderLogoFallback" style="display:none; height:100%; width:100%; background: rgba(0,0,0,0.05); border-radius: 50%; align-items: center; justify-content: center; font-size: 32px;">☕</div>
+    </div>
+
     <div class="spinner"></div>
     <div id="progressText" class="progress-text">1%</div>
 </div>
